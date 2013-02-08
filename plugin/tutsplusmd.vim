@@ -56,17 +56,22 @@ try:
 
     # create new buffer
     vim.command('e output.html')
+    vim.command('b output.html')
+    vim.command('set modifiable')
     vim.command('set ft=html')
 
-    # get last buffer
-    last_buff = vim.buffers[-1]
+    # get output.html buffer
+    for buffer_ in vim.buffers:
+        if 'output.html' in buffer_.name:
+            out_buffer = buffer_
+            break
     html = convert(buff_str)
     html_list = html.split('\n')
 
     # for some reason appending a list doesn't work
     for i in range(len(html_list)):
-        last_buff.append(str(html_list[i]))
-    del last_buff[0]
+        out_buffer.append(str(html_list[i]))
+    del out_buffer[0]
 except ImportError:
     print "Please install misaka and ensure it is in PYTHONPATH"
     pass
