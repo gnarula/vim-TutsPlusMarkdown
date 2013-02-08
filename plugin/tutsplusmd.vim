@@ -1,6 +1,6 @@
 " Make sure vim was compiled with Python support
 if !has("python")
-    echo "Please compile vim with python support for this plugin to work
+    echo "Please compile vim with python support for this plugin to work"
     finish
 endif
 
@@ -42,7 +42,7 @@ try:
         markdown = Markdown(TutsPlusRenderer(), EXT_FENCED_CODE)
 
         contents = re.sub(r'(\w+_\w+_\w[\w_]*)', escape_underscore, contents)
-        contents = re.sub(r'(\A|^$\n)(^\w[^\n]*\n)(^\w[^\n]*$)+', newline, contents, flags=re.MULTILINE) # requires python 2.7
+        contents = re.sub(re.compile(r'(\A|^$\n)(^\w[^\n]*\n)(^\w[^\n]*$)+', re.MULTILINE), newline, contents)
 
         converted = markdown.render(contents)
 
