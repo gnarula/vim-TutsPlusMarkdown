@@ -55,7 +55,7 @@ try:
     buff_str = '\n'.join([i for i in buff])
 
     # create new buffer
-    vim.command('enew')
+    vim.command('e output.html')
     vim.command('set ft=html')
 
     # get last buffer
