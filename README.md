@@ -16,9 +16,11 @@ Then install the plugin using pathogen
     cd ~/.vim/bundle
     git clone https://github.com/gnarula/vim-TutsPlusMarkdown.git
 
-Default key binding for the plugin is `Ctrl+m`
+Default key binding for the plugin in normal mode is `Ctrl+m`
 
-__Note__: This plugin has only been tested Vim 7.3 on Ubuntu 12.10
+__Note__:
+* This plugin has only been tested Vim 7.3 on Ubuntu 12.10
+* Use the plugin only when the current buffer has been saved to a file or `set hidden` is in your vimrc
 
 ## Credits
 
