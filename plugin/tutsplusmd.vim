@@ -74,6 +74,8 @@ try:
     # for some reason appending a list doesn't work
     for i in range(len(html_list)):
         out_buffer.append(str(html_list[i]), i)
+    out_buffer[-2:] = None # last two lines are blank
+
 except ImportError:
     print "Please install misaka and ensure it is in PYTHONPATH"
     pass
