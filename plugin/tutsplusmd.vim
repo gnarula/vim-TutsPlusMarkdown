@@ -65,13 +65,15 @@ try:
         if 'output.html' in buffer_.name:
             out_buffer = buffer_
             break
+
+    out_buffer[:] = None # delete buffer first
+
     html = convert(buff_str)
     html_list = html.split('\n')
 
     # for some reason appending a list doesn't work
     for i in range(len(html_list)):
-        out_buffer.append(str(html_list[i]))
-    del out_buffer[0]
+        out_buffer.append(str(html_list[i]), i)
 except ImportError:
     print "Please install misaka and ensure it is in PYTHONPATH"
     pass
