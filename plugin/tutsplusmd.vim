@@ -83,4 +83,7 @@ endpython
 endfunction
 
 command! -nargs=0 TutsPlusMD call TutsPlusMD()
-nmap <C-m> :TutsPlusMD<CR>
+if !exists('g:tpmd_keymap')
+    let g:tpmd_keymap = '<Leader>m'
+endif
+execute "nmap " g:tpmd_keymap ":TutsPlusMD<CR>"
